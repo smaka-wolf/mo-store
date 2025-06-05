@@ -2,13 +2,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.1/firebas
 import { getFirestore, collection, onSnapshot, query } from "https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore.js";
 
 const firebaseConfig = {
-    // Your Firebase config here
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_AUTH_DOMAIN",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_STORAGE_BUCKET",
-    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-    appId: "YOUR_APP_ID"
+    apiKey: "AIzaSyBTh1iwq-xns8PUybwkSKsbZQyycGJR8pE",
+    authDomain: "mo-store-bd161.firebaseapp.com",
+    projectId: "mo-store-bd161",
+    storageBucket: "mo-store-bd161.firebasestorage.app",
+    messagingSenderId: "72929276087",
+    appId: "1:72929276087:web:07d4d95848dd8df05e9d32"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -23,9 +22,9 @@ function displayProducts() {
         container += `
         <div class="product-card" data-id="${productsContainer[i].id}">
         <div class="card-img">
-            <img onclick=displayDetails(${productsContainer[i].id});
-             src=${productsContainer[i].images[0]}
-             alt=${productsContainer[i].name}>
+            <img onclick="displayDetails(${productsContainer[i].id});"
+             src="${productsContainer[i].images[0]}"
+             alt="${productsContainer[i].name}">
             <a href=""  class="addToCart">
                 <ion-icon name="cart-outline" class="Cart"></ion-icon>
             </a>
@@ -98,10 +97,16 @@ function loadProducts(category = null) {
             const product = doc.data();
             productsContainer.push(product);
         });
+        console.log("Fetched products:", productsContainer);
+        if (productsContainer.length === 0) {
+            console.warn("No products found in Firestore 'products' collection.");
+        }
         if (category) {
             productsContainer = productsContainer.filter(product => product.category === category);
         }
         displayProducts();
+    }, (error) => {
+        console.error("Error fetching products from Firestore:", error);
     });
 }
 

@@ -1,5 +1,5 @@
 let cart = [];
-let products = [];
+let cartProducts = [];
 let totalPrice = document.getElementById("total_price");
 let cartCounter = document.getElementById("cart-counter");
 let cartItemsCount = document.getElementById("cart_counts");
@@ -14,7 +14,7 @@ checkCart();
 async function getData() {
     let response = await fetch('json/products.json');
     let json = await response.json();
-    products = json;
+    cartProducts = json;
 }
 function loadCart() {
     let storedCart = localStorage.getItem('cart');
@@ -28,7 +28,7 @@ function saveCart() {
 }
 
 function addToCart(productId,inputQuantity = 1) {
-    let product = products.find(p => p.id == productId);
+    let product = cartProducts.find(p => p.id == productId);
     if (product) {
         let existingProduct = cart.find(p => p.id == productId);
         if (existingProduct) {
