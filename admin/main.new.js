@@ -146,7 +146,8 @@ productForm.addEventListener('submit', async (e) => {
             const productRef = doc(db, "products", id);
             await updateDoc(productRef, productData);
         } else {
-            await addDoc(collection(db, "products"), productData);
+            const productRef = doc(db, "products", id);
+            await setDoc(productRef, productData);
         }
         productFormSection.style.display = 'none';
         editProductId = null;
