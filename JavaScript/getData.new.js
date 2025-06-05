@@ -89,25 +89,47 @@ function displayDetails(productId) {
     window.location.href = `ProductDetails.html?productId=${productId}`;
 }
 
-function loadProducts(category = null) {
+async function loadProducts(category = null) {
     const q = query(collection(db, "products"));
-    onSnapshot(q, (querySnapshot) => {
-        productsContainer = [];
-        querySnapshot.forEach((doc) => {
-            const product = doc.data();
-            productsContainer.push(product);
+    try {
+        onSnapshot(q, (querySnapshot) => {
+            productsContainer = [];
+            querySnapshot.forEach((doc) => {
+                const product = doc.data();
+                productsContainer.push(product);
+            });
+            console.log("Fetched products:", productsContainer);
+            if (productsContainer.length === 0) {
+                console.warn("No products found in Firestore 'products' collection. Loading from local JSON.");
+                loadProductsFromJSON(category);
+                return;
+            }
+            if (category) {
+                productsContainer = productsContainer.filter(product => product.category === category);
+            }
+            displayProducts();
+        }, (error) => {
+            console.error("Error fetching products from Firestore:", error);
+            loadProductsFromJSON(category);
         });
-        console.log("Fetched products:", productsContainer);
-        if (productsContainer.length === 0) {
-            console.warn("No products found in Firestore 'products' collection.");
-        }
+    } catch (error) {
+        console.error("Error in Firestore onSnapshot:", error);
+        loadProductsFromJSON(category);
+    }
+}
+
+async function loadProductsFromJSON(category = null) {
+    try {
+        const response = await fetch('json/products.json');
+        const json = await response.json();
+        productsContainer = json;
         if (category) {
             productsContainer = productsContainer.filter(product => product.category === category);
         }
         displayProducts();
-    }, (error) => {
-        console.error("Error fetching products from Firestore:", error);
-    });
+    } catch (error) {
+        console.error("Error loading products from local JSON:", error);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
