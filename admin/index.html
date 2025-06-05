@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>لوحة تحكم المسؤول - متجر MO</title>
+    <link rel="stylesheet" href="../Style/main.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>لوحة تحكم المسؤول - متجر MO</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="logoutBtn">تسجيل الخروج</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="product-management">
+            <h2>إدارة المنتجات</h2>
+            <div id="filterContainer">
+                <label for="categoryFilter">تصفية حسب الفئة:</label>
+                <select id="categoryFilter">
+                    <option value="all">الكل</option>
+                </select>
+            </div>
+            <button id="addProductBtn">إضافة منتج جديد</button>
+            <div id="productsGrid" class="products-grid">
+                <!-- سيتم ملء المنتجات هنا بواسطة JavaScript -->
+            </div>
+        </section>
+
+        <section id="productFormSection" style="display:none;">
+            <h2 id="formTitle">إضافة منتج جديد</h2>
+            <form id="productForm">
+                <input type="hidden" id="productId" />
+                <label for="productName">اسم المنتج:</label><br />
+                <input type="text" id="productName" required /><br />
+                <label for="productPrice">السعر:</label><br />
+                <input type="text" id="productPrice" required /><br />
+                <label for="productCategory">الفئة:</label><br />
+                <select id="productCategory" required>
+                    <!-- Options will be populated dynamically -->
+                </select><br />
+                <label for="productDescription">الوصف:</label><br />
+                <textarea id="productDescription" required></textarea><br />
+                <label for="productImages">روابط الصور (افصل بين الروابط بفاصلة):</label><br />
+                <input type="text" id="productImages" required /><br />
+                <button type="submit" id="saveProductBtn">حفظ</button>
+                <button type="button" id="cancelBtn">إلغاء</button>
+            </form>
+        </section>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>

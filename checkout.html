@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="اكتشف أحدث صيحات الموضة للنساء والرجال في متجر MO. تسوق مجموعتنا الواسعة من الملابس والحقائب والمجوهرات والمزيد. ارتقِ بأسلوبك مع مجموعاتنا المختارة بعناية." />
+    <meta name="keywords" content="ملابس, نساء, رجال, موضة, حقائب, مجوهرات, متجر MO, أحدث صيحات, ملابس أنيقة, إكسسوارات" />
+    <meta name="author" content="متجر MO" />
+    <link rel="icon" href="images/logowhite.jpg" type="image/x-icon" />
+    <!-- Google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+     <!-- css  -->
+    <link rel="stylesheet" href="Style/checkout.css" />
+     <!-- animation icon -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+     <title>متجر MO</title>
+</head>
+<body style="font-family: 'Cairo', sans-serif; direction: rtl; text-align: right;">
+    <div class="checkout" id="checkout-overlay">
+         <div class="checkout-container">
+            <div id="checkoutIcon" style="width: 200px; height: 200px;"></div>
+            <h4>شكرًا لك. تم استلام طلبك</h4>
+            <div>
+                <span>الطلب:</span> <span id="id_order">1</span>
+                <span>الإجمالي:</span> <span id="total_price"> $ 124.05</span>
+                <span>التاريخ:</span> <span id="order_date"></span>
+            </div>
+            <button id="back_btn" onclick="backHome();">العودة إلى الصفحة الرئيسية</button>
+         </div>
+    </div> 
+    <script src="JavaScript/checkout.js"></script>
+</body>
+</html>

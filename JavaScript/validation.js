@@ -1,0 +1,1 @@
+/* validation.js is now empty as Gmail login and email validation are removed */

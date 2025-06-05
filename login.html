@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="اكتشف أحدث صيحات الموضة للنساء والرجال في متجر MO. تسوق مجموعتنا الواسعة من الملابس والحقائب والمجوهرات والمزيد. ارتقِ بأسلوبك مع مجموعاتنا المختارة بعناية." />
+        <meta name="keywords" content="ملابس, نساء, رجال, موضة, حقائب, مجوهرات, متجر MO, أحدث صيحات, ملابس أنيقة, إكسسوارات" />
+        <meta name="author" content="متجر MO" />
+        <link rel="icon" href="images/logowhite.jpg" type="image/x-icon" />
+        <!-- css -->
+        <link rel="stylesheet" href="Style/login.css" />
+        <link rel="stylesheet" href="Style/main.css" />
+        <!-- Google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet" />
+        <!-- icon -->
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+        <title>متجر MO</title>
+    </head>
+<body style="font-family: 'Cairo', sans-serif; direction: rtl; text-align: right;">
+    <header class="container" id="header">
+        <div class="header_top">
+            <div class="header_social">
+                <a href="" target="_blank">
+                    <ion-icon name="logo-instagram"></ion-icon>
+                </a>
+                <a href="" target="_blank">
+                    <ion-icon name="logo-facebook"></ion-icon>
+                </a>
+                <a href="https://wa.me/+971557236244" target="_blank">
+                    <ion-icon name="logo-whatsapp"></ion-icon>
+                </a>
+            </div>
+            <img src="images/logo_block.jpg" alt="page logo" id="logo" />
+            <div class="header_actions">
+                <div id="display_login">
+                    <span id="user_name">أميرة</span>
+                    <a href="#" id="logout" title="تسجيل الخروج" onclick="logout();">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </a>
+                </div>
+                <a href="login.html" title="تسجيل الدخول" id="login_btn">
+                    <ion-icon name="person-circle-outline"></ion-icon>
+                </a>
+                <a href="#" class="icon-cart">
+                    <ion-icon name="cart-outline"></ion-icon>
+                    <span id="cart-counter">0</span>
+                </a>
+            </div>
+        </div>
+        <nav>
+            <menu>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="products.html">التسوق</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                </ul>
+            </menu>
+        </nav>
+    </header>
+    <section id="login">
+        <div class="container">
+            <h1 class="section-header">تسجيل الدخول</h1>
+            <div id="form">
+                <label for="username">اسم المستخدم</label>
+                <input type="text" name="username" placeholder="اسم المستخدم" id="username" />
+                <span id="invalidUsername" class="alert">اسم المستخدم غير صحيح</span>
+                <label for="password">كلمة المرور</label>
+                <input type="password" name="password" placeholder="كلمة المرور" id="password" />
+                <span id="invalidPass" class="alert">كلمة المرور غير صحيحة</span>
+                <div class="submit">
+                    <button id="btn-login">تسجيل الدخول</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <button id="scrollBtn"><ion-icon name="arrow-up-outline" id="btn-up"></ion-icon></button>
+    <!-- cart -->
+    <div class="cart-section">
+        <div class="cart-header">
+            <h2>عربة التسوق</h2>
+            <div class="closeCart">
+                <ion-icon name="close-outline" id="closeCart"></ion-icon>
+            </div>
+        </div>
+        <div class="cart_products">
+            <!-- add cart products in js -->
+        </div>
+        <div class="cart_total">
+            <h3>الإجمالي:</h3>
+            <span id="total_price"></span>
+        </div>
+        <div class="btn_control">
+            <button class="viewCart" onclick="viewCart();">عرض العربة</button>
+            <button class="checkout" onclick="checkOut();">الدفع</button>
+        </div>
+    </div>
+    <footer class="footer black-footer">
+        <div class="footer-top">
+            <div class="footer-logo">
+                <img src="images/logo_block.jpg" alt="logo" width="140" />
+                <p>العميل في قلب نموذج أعمالنا الفريد، والذي يشمل التصميم.</p>
+            </div>
+            <div class="footer-list">
+                <div class="list">
+                    <h4>التسوق</h4>
+                    <ul>
+                        <li><a href="#">متجر الملابس</a></li>
+                        <li><a href="#">الأحذية الرائجة</a></li>
+                        <li><a href="#">الإكسسوارات</a></li>
+                        <li><a href="#">تخفيضات</a></li>
+                    </ul>
+                </div>
+                <div class="list">
+                    <h4>خدمات العملاء</h4>
+                    <ul>
+                        <li><a href="#">اتصل بنا</a></li>
+                        <li><a href="#">طرق الدفع</a></li>
+                        <li><a href="#">التوصيل</a></li>
+                        <li><a href="#">الإرجاع والتبديل</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p class="footer-company-name">© 2025 جميع الحقوق محفوظة. صنع بواسطة MO.store</p>
+        </div>
+    </footer>
+    <script src="JavaScript/main.js"></script>
+    <script src="JavaScript/validation.js"></script>
+    <script src="JavaScript/cart.js"></script>
+</body>
+</html>
